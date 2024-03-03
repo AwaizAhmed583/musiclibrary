@@ -1,0 +1,90 @@
+.list-contailer {
+  padding: 20px;
+
+  .action-section {
+    display: flex;
+    justify-content: space-between;
+  }
+  li {
+    list-style-type: none;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .thumbnail {
+    width: 90px;
+    height: 90px;
+
+    font-size: 30px;
+  }
+
+  .rowThumbnail {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .callButton {
+    background-color: #20ac2f;
+    color: white;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+  }
+
+  .callIcon {
+    font-size: 18px;
+    position: relative;
+    top: -2px;
+  }
+
+  .contactInfo {
+    display: flex;
+    align-items: center;
+  }
+
+  .artist-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .artist-item {
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .artist-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .artist-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .artist-details {
+    padding: 15px;
+    background-color: #fff;
+  }
+
+  .artist-details h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  .artist-details p {
+    margin: 0;
+    font-size: 1rem;
+    color: #666;
+  }
+}

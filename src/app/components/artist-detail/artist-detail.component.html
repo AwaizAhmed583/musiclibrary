@@ -1,0 +1,41 @@
+<div class="artist-detail">
+    <div class="artist-meta">
+      <h2>{{ artist.name }}</h2>
+      <div class="artist-banner">
+        <img [src]="artist.image" alt="Banner Image">
+      </div>
+      <div class="meta-info">
+        <p style="margin-top: 20px;">Listeners: {{ artist.listeners }}</p>
+      </div>
+    </div>
+  
+    <div class="top-tracks" *ngIf="topTracks.length > 0">
+      <h3>Top 5 Tracks</h3>
+      <ul class="track-list">
+        <li *ngFor="let track of topTracks" class="track-item">
+          <div class="track-image">
+            <img [src]="track.image" alt="Track Image">
+          </div>
+          <div class="track-info">
+            <h4>{{ track.name }}</h4>
+            <p>Play Count: {{ track.playcount }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="top-albums"  *ngIf="topAlbumns.length > 0">
+      <h3>Top 5 Albums</h3>
+      <ul class="album-list">
+        <li *ngFor="let album of topAlbumns" class="album-item">
+          <div class="album-image">
+            <img [src]="album.image" alt="Album Image">
+          </div>
+          <div class="album-info">
+            <h4>{{ album.name }}</h4>
+            <p>Play Count: {{ album.playcount }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>

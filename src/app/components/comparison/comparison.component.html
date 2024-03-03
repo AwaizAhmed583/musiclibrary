@@ -1,0 +1,120 @@
+<div class="side-by-side-container">
+  <div class="side left-side">
+    <h2>Artist 1</h2>
+    <mat-form-field class="form-field">
+      <input
+        matInput
+        placeholder="Search Artist"
+        aria-label="Artist"
+        [matAutocomplete]="auto1"
+        [formControl]="searchArtist1"
+      />
+      <mat-autocomplete
+        (optionSelected)="onArtist1Selected($event.option.value)"
+        #auto1="matAutocomplete"
+      >
+        <mat-option *ngFor="let artist of artists1" [value]="artist.name">
+          <span>{{ artist.name }} | {{ artist.listeners }} </span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <div class="comparison-container" *ngIf="artistInfo1">
+      <div class="artist-card">
+        <h2>Name: {{ artistInfo1.name }}</h2>
+        <div class="artist-details">
+          <p>Listeners: {{ artistInfo1.listeners }}</p>
+          <p style="margin-bottom: 15px">
+            Play Count: {{ artistInfo1.playcount }}
+          </p>
+          <a style="padding-top: 15px" [href]="artistInfo1.moreInfo"
+            >Get More Info</a
+          >
+        </div>
+
+        <ng-container *ngIf="artist1TrackInfo?.length > 0">
+          <div class="top-tracks">Top Tracks</div>
+          <div class="tracks-header top-tracks-container">
+            <div class="track-item-first">Track Name</div>
+            <div class="track-item">No Of Listeners</div>
+            <div class="track-item">Play count</div>
+          </div>
+          <div
+            class="top-tracks-container"
+            *ngFor="let track of artist1TrackInfo"
+          >
+            <div class="track-item-first">
+              {{ track.name }}
+            </div>
+            <div class="track-item">
+              {{ track.listeners }}
+            </div>
+            <div class="track-item">
+              {{ track.playcount }}
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="side right-side">
+    <h2>Artist 2</h2>
+
+    <mat-form-field class="form-field">
+      <input
+        matInput
+        placeholder="Search Artist"
+        aria-label="Artist"
+        [matAutocomplete]="auto2"
+        [formControl]="searchArtist2"
+      />
+      <mat-autocomplete
+        (optionSelected)="onArtist2Selected($event.option.value)"
+        #auto2="matAutocomplete"
+      >
+        <mat-option *ngFor="let artist of artists2" [value]="artist.name">
+          <span>{{ artist.name }} | {{ artist.listeners }}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <div class="comparison-container" *ngIf="artistInfo2">
+      <div class="artist-card">
+        <h2>Name: {{ artistInfo2.name }}</h2>
+        <div class="artist-details">
+          <p>Listeners: {{ artistInfo2.listeners }}</p>
+          <p style="margin-bottom: 15px">
+            Play Count: {{ artistInfo2.playcount }}
+          </p>
+          <a style="padding-top: 15px" [href]="artistInfo2.moreInfo"
+            >Get More Info</a
+          >
+        </div>
+
+        <ng-container *ngIf="artist2TrackInfo?.length > 0">
+          <div class="top-tracks">Top Tracks</div>
+          <div class="tracks-header top-tracks-container">
+            <div class="track-item-first">Track Name</div>
+            <div class="track-item">No Of Listeners</div>
+            <div class="track-item">Play count</div>
+          </div>
+          <div
+            class="top-tracks-container"
+            *ngFor="let track of artist2TrackInfo"
+          >
+            <div class="track-item-first">
+              {{ track.name }}
+            </div>
+            <div class="track-item">
+              {{ track.listeners }}
+            </div>
+            <div class="track-item">
+              {{ track.playcount }}
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

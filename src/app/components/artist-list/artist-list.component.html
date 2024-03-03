@@ -1,0 +1,47 @@
+<div class="list-contailer">
+  <div class="action-section">
+    <div>
+      <mat-form-field>
+        <mat-label>Select Country</mat-label>
+        <mat-select
+          [(value)]="selectedCountry"
+          (selectionChange)="onCountryChange($event)"
+        >
+          <mat-option *ngFor="let country of countries" [value]="country.name">
+            {{ country.name }} ({{country.code}})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Search</mat-label>
+        <input
+          matInput
+          [formControl]="searchControl"
+          placeholder="Search Artist By Name..."
+        />
+        <button mat-button matSuffix>
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="artist-list">
+    <div
+      (click)="goToDetailPage(artist)"
+      *ngFor="let artist of topTracks"
+      class="artist-item"
+    >
+      <div class="artist-image">
+        <img [src]="artist.image" alt="Artist Image" />
+      </div>
+      <div class="artist-details">
+        <h3>{{ artist.name }}</h3>
+        <p>No of Listeners: {{ artist.listeners }}</p>
+      </div>
+    </div>
+  </div>
+</div>
